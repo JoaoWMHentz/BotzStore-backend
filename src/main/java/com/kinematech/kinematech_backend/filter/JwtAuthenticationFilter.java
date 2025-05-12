@@ -22,6 +22,25 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+        String path = request.getRequestURI();
+                // Define public paths that do not require authentication
+                String[] publicPaths = {
+                    "/swagger-ui",
+                    "/v3/api-docs",
+                    "/swagger-ui.html",
+                    "/api/users/register",
+                    "/api/users/verify-email",
+                    "/api/users/login",
+                };
+
+                // Check if the request path matches any public path
+                for (String publicPath : publicPaths) {
+                    if (path.equals(publicPath) || path.startsWith(publicPath)) {
+                    filterChain.doFilter(request, response);
+                    return;
+                    }
+                }
+
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {

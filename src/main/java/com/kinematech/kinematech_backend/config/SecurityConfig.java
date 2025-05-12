@@ -19,9 +19,18 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/users/register", "/api/users/verify-email").permitAll() // Endpoints públicos
+                        .requestMatchers(
+                                "/api/users/register",
+                                "/api/users/verify-email",
+                                "/api/users/login",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/v3/api-docs.yaml",
+                                "/swagger-ui.html")
+                        .permitAll() // Endpoints públicos
                         .anyRequest().authenticated()) // Todos os outros endpoints requerem autenticação
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // Sem estado
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // Sem
+                                                                                                               // estado
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

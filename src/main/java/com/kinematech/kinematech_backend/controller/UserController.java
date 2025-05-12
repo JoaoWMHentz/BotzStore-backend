@@ -1,5 +1,6 @@
 package com.kinematech.kinematech_backend.controller;
 
+import com.kinematech.kinematech_backend.dto.LoginRequest;
 import com.kinematech.kinematech_backend.dto.RegisterRequest;
 import com.kinematech.kinematech_backend.model.*;
 import com.kinematech.kinematech_backend.service.*;
@@ -9,8 +10,6 @@ import com.kinematech.kinematech_backend.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -27,7 +26,7 @@ public class UserController {
             if (request.getPassword() == null || request.getPassword().isEmpty()) {
                 return ResponseEntity.badRequest().body("Password is required");
             }
-            if (request.getUsername() == null || request.getUsername().isEmpty()) {
+            if (request.getName() == null || request.getName().isEmpty()) {
                 return ResponseEntity.badRequest().body("Username is required");
             }
             if (request.getEmail() == null || request.getEmail().isEmpty()) {
@@ -44,7 +43,7 @@ public class UserController {
             String hashedPassword = AuthUtils.hashPassword(request.getPassword(), salt);
 
             User user = new User();
-            user.setUsername(request.getUsername());
+            user.setUsername(request.getName());
             user.setPassword(hashedPassword);
             user.setSalt(salt);
             user.setEmail(request.getEmail());
@@ -57,7 +56,7 @@ public class UserController {
             userService.save(user);
 
             // Enviar e-mail de verificação
-            emailService.sendVerificationEmail(user.getEmail(), verificationToken);
+            //emailService.sendVerificationEmail(user.getEmail(), verificationToken);
 
             user.setPassword("");
             user.setSalt("");
@@ -92,7 +91,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody RegisterRequest request) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         try {
             User user = userService.findByEmail(request.getEmail());
 

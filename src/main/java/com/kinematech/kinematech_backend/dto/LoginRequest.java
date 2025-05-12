@@ -1,6 +1,6 @@
 package com.kinematech.kinematech_backend.dto;
 
-class LoginRequest {
+public class LoginRequest {
     private String email;
     private String password;
 
