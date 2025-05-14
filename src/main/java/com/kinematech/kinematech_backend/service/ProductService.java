@@ -31,6 +31,23 @@ public class ProductService {
     }
 
     public Product save(Product product) {
+        // Verificar se os campos obrigatórios estão preenchidos
+        if (product.getName() == null || product.getName().isEmpty()) {
+            throw new IllegalArgumentException("O nome do produto é obrigatório.");
+        }
+        if (product.getPrice() == null) {
+            throw new IllegalArgumentException("O preço do produto é obrigatório.");
+        }
+        if (product.getCategory() == null) {
+            throw new IllegalArgumentException("A categoria do produto é obrigatória.");
+        }
+
+        // Verificar se já existe um produto com o mesmo nome
+        Optional<Product> existingProduct = productRepository.findByName(product.getName());
+        if (existingProduct.isPresent()) {
+            throw new IllegalArgumentException("Já existe um produto com o nome fornecido.");
+        }
+
         return productRepository.save(product);
     }
 

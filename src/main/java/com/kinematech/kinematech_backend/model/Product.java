@@ -1,6 +1,7 @@
 package com.kinematech.kinematech_backend.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -21,16 +22,35 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    private Integer stockQuantity;
+    // Campo para a thumbnail em Base64, sem limite de caracteres
+    @Lob
+    private String thumbnail;
+
+    // Lista de fotos adicionais em Base64
+    @ElementCollection
+    @CollectionTable(name = "product_photos", joinColumns = @JoinColumn(name = "product_id"))
+    @Column(name = "photo", columnDefinition = "TEXT")
+    private List<String> photos;
+
+    // Indica se o produto deve aparecer na página inicial
+    @Column(nullable = false)
+    private boolean showOnHomepage;
+
+    // Descrição detalhada em HTML, sem limite de caracteres
+    @Lob
+    private String detailedDescription;
 
     public Product() {}
 
-    public Product(String name, String description, Double price, Category category, Integer stockQuantity) {
+    public Product(String name, String description, Double price, Category category, String thumbnail, List<String> photos, boolean showOnHomepage, String detailedDescription) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
-        this.stockQuantity = stockQuantity;
+        this.thumbnail = thumbnail;
+        this.photos = photos;
+        this.showOnHomepage = showOnHomepage;
+        this.detailedDescription = detailedDescription;
     }
 
     // Getters e Setters
@@ -70,11 +90,35 @@ public class Product {
         this.category = category;
     }
 
-    public Integer getStockQuantity() {
-        return stockQuantity;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
-    public void setStockQuantity(Integer stockQuantity) {
-        this.stockQuantity = stockQuantity;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public List<String> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<String> photos) {
+        this.photos = photos;
+    }
+
+    public boolean isShowOnHomepage() {
+        return showOnHomepage;
+    }
+
+    public void setShowOnHomepage(boolean showOnHomepage) {
+        this.showOnHomepage = showOnHomepage;
+    }
+
+    public String getDetailedDescription() {
+        return detailedDescription;
+    }
+
+    public void setDetailedDescription(String detailedDescription) {
+        this.detailedDescription = detailedDescription;
     }
 }

@@ -17,20 +17,22 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(requests -> requests
-                        .requestMatchers(
-                                "/api/users/register",
-                                "/api/users/verify-email",
-                                "/api/users/login",
-                                "/swagger-ui/**",
-                                "/v3/api-docs/**",
-                                "/v3/api-docs.yaml",
-                                "/swagger-ui.html")
-                        .permitAll() // Endpoints públicos
-                        .anyRequest().authenticated()) // Todos os outros endpoints requerem autenticação
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // Sem
-                                                                                                               // estado
+        http
+            .cors(cors -> cors.disable()) // Habilita ou desabilita CORS conforme necessário
+            .csrf(csrf -> csrf.disable()) // Desabilita CSRF (opcional, dependendo do caso)
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Sem estado
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/api/users/register",
+                    "/api/users/verify-email",
+                    "/api/users/login",
+                    "/swagger-ui/**",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs.yaml",
+                    "/swagger-ui.html"
+                ).permitAll() // Endpoints públicos
+                .anyRequest().authenticated() // Exige autenticação para outras rotas
+            );
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
