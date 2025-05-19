@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/sale-items")
@@ -14,7 +15,7 @@ public class SaleItemController {
     private SaleItemService saleItemService;
 
     @GetMapping("/sale/{saleId}")
-    public List<SaleItem> getBySaleId(@PathVariable Long saleId) {
+    public List<SaleItem> getBySaleId(@PathVariable UUID saleId) {
         return saleItemService.findAllBySaleId(saleId);
     }
 
@@ -24,7 +25,7 @@ public class SaleItemController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable UUID id) {
         saleItemService.delete(id);
     }
 }

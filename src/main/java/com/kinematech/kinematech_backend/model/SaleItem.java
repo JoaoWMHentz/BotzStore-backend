@@ -1,14 +1,20 @@
 package com.kinematech.kinematech_backend.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
+
+import org.hibernate.annotations.GenericGenerator;
+import java.util.UUID;
 
 @Entity
 @Table(name = "sale_items")
 public class SaleItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid4")
+    @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(columnDefinition = "UUID")
+    private UUID id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "product_id")
@@ -22,7 +28,8 @@ public class SaleItem {
 
     private double price;
 
-    public SaleItem() {}
+    public SaleItem() {
+    }
 
     public SaleItem(Product product, Sale sale, int quantity, double price) {
         this.product = product;
@@ -31,7 +38,7 @@ public class SaleItem {
         this.price = price;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

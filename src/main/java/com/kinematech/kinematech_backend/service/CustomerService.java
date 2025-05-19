@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CustomerService {
@@ -17,7 +18,7 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Optional<Customer> findById(Long id) {
+    public Optional<Customer> findById(UUID id) {
         return customerRepository.findById(id);
     }
 
@@ -25,7 +26,7 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         customerRepository.deleteById(id);
     }
 }

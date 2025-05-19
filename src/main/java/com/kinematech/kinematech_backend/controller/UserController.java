@@ -43,7 +43,7 @@ public class UserController {
             String hashedPassword = AuthUtils.hashPassword(request.getPassword(), salt);
 
             User user = new User();
-            user.setUsername(request.getName());
+            user.setName(request.getName());
             user.setPassword(hashedPassword);
             user.setSalt(salt);
             user.setEmail(request.getEmail());

@@ -2,6 +2,7 @@ package com.kinematech.kinematech_backend.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,11 @@ public class SaleService {
         return saleRepository.findAll();
     }
 
-    public Optional<Sale> findById(Long id) {
+    public Optional<Sale> findById(UUID id) {
         return saleRepository.findById(id);
     }
 
-    public List<Sale> findAllByCustomerId(Long customerId) {
+    public List<Sale> findAllByCustomerId(UUID customerId) {
         return saleRepository.findAllByCustomerId(customerId);
     }
 
@@ -30,7 +31,7 @@ public class SaleService {
         return saleRepository.save(sale);
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         saleRepository.deleteById(id);
     }
 }

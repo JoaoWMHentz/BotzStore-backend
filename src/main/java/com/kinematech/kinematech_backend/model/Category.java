@@ -1,32 +1,36 @@
 package com.kinematech.kinematech_backend.model;
 
 import jakarta.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
+
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "categories")
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid4")
+    @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(columnDefinition = "UUID")
+    private UUID id;
 
     @Column(nullable = false, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Product> products;
+    public Category() {
+    }
 
-    public Category() {}
-
-    public Category(Long id, String name, List<Product> products) {
+    public Category(UUID id, String name, List<Product> products) {
         this.id = id;
         this.name = name;
-        this.products = products;
     }
 
     // Getters e Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -36,13 +40,5 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 }

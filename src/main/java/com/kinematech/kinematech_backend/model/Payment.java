@@ -1,15 +1,21 @@
 package com.kinematech.kinematech_backend.model;
 
 import jakarta.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Entity
 @Table(name = "payments")
 public class Payment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid4")
+    @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(columnDefinition = "UUID")
+    private UUID id;
 
     @OneToOne(optional = false)
     @JoinColumn(name = "sale_id", unique = true)
@@ -24,7 +30,8 @@ public class Payment {
     @Column(nullable = false)
     private String paymentStatus;
 
-    public Payment() {}
+    public Payment() {
+    }
 
     public Payment(Sale sale, String paymentMethod, BigDecimal amount, String paymentStatus) {
         this.sale = sale;
@@ -33,7 +40,7 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

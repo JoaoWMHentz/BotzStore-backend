@@ -1,0 +1,103 @@
+Date : 2025-05-19 13:14:13
+Directory : /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend
+Total : 51 files,  1719 codes, 71 comments, 488 blanks, all 2278 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| Java            |         46 |      1,480 |         29 |        461 |      1,970 |
+| Batch           |          1 |        108 |         26 |         16 |        150 |
+| XML             |          1 |         91 |          0 |          2 |         93 |
+| Java Properties |          2 |         24 |         16 |          6 |         46 |
+| YAML            |          1 |         16 |          0 |          3 |         19 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                                         | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                                            |         51 |      1,719 |         71 |        488 |      2,278 |
+| . (Files)                                                                                                                                                    |          3 |        215 |         26 |         21 |        262 |
+| .mvn                                                                                                                                                         |          1 |          3 |         16 |          1 |         20 |
+| .mvn/wrapper                                                                                                                                                 |          1 |          3 |         16 |          1 |         20 |
+| src                                                                                                                                                          |         47 |      1,501 |         29 |        466 |      1,996 |
+| src/main                                                                                                                                                     |         46 |      1,492 |         29 |        461 |      1,982 |
+| src/main/java                                                                                                                                                |         45 |      1,471 |         29 |        456 |      1,956 |
+| src/main/java/com                                                                                                                                            |         45 |      1,471 |         29 |        456 |      1,956 |
+| src/main/java/com/kinematech                                                                                                                                 |         45 |      1,471 |         29 |        456 |      1,956 |
+| src/main/java/com/kinematech/kinematech_backend                                                                                                              |         45 |      1,471 |         29 |        456 |      1,956 |
+| src/main/java/com/kinematech/kinematech_backend (Files)                                                                                                      |          1 |          9 |          0 |          5 |         14 |
+| src/main/java/com/kinematech/kinematech_backend/config                                                                                                       |          2 |         75 |          0 |         13 |         88 |
+| src/main/java/com/kinematech/kinematech_backend/controller                                                                                                   |          9 |        319 |          3 |         75 |        397 |
+| src/main/java/com/kinematech/kinematech_backend/dto                                                                                                          |          2 |         41 |          0 |         14 |         55 |
+| src/main/java/com/kinematech/kinematech_backend/filter                                                                                                       |          1 |         65 |         11 |         17 |         93 |
+| src/main/java/com/kinematech/kinematech_backend/model                                                                                                        |          9 |        538 |          9 |        194 |        741 |
+| src/main/java/com/kinematech/kinematech_backend/repository                                                                                                   |          9 |         85 |          1 |         41 |        127 |
+| src/main/java/com/kinematech/kinematech_backend/service                                                                                                      |         10 |        265 |          4 |         83 |        352 |
+| src/main/java/com/kinematech/kinematech_backend/utils                                                                                                        |          2 |         74 |          1 |         14 |         89 |
+| src/main/resources                                                                                                                                           |          1 |         21 |          0 |          5 |         26 |
+| src/test                                                                                                                                                     |          1 |          9 |          0 |          5 |         14 |
+| src/test/java                                                                                                                                                |          1 |          9 |          0 |          5 |         14 |
+| src/test/java/com                                                                                                                                            |          1 |          9 |          0 |          5 |         14 |
+| src/test/java/com/kinematech                                                                                                                                 |          1 |          9 |          0 |          5 |         14 |
+| src/test/java/com/kinematech/kinematech_backend                                                                                                              |          1 |          9 |          0 |          5 |         14 |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                                                                                     | language        | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/.mvn/wrapper/maven-wrapper.properties                                                  | Java Properties |          3 |         16 |          1 |         20 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/docker-compose.yml                                                                     | YAML            |         16 |          0 |          3 |         19 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/mvnw.cmd                                                                               | Batch           |        108 |         26 |         16 |        150 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/pom.xml                                                                                | XML             |         91 |          0 |          2 |         93 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/KinematechBackendApplication.java      | Java            |          9 |          0 |          5 |         14 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/config/SecurityConfig.java             | Java            |         51 |          0 |          8 |         59 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/config/SwaggerConfig.java              | Java            |         24 |          0 |          5 |         29 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/AddressController.java      | Java            |         23 |          0 |          5 |         28 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/CategoryController.java     | Java            |         31 |          0 |          7 |         38 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/CustomerController.java     | Java            |         31 |          0 |          7 |         38 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/PaymentController.java      | Java            |         23 |          0 |          6 |         29 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/ProductController.java      | Java            |         39 |          0 |         10 |         49 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/SaleController.java         | Java            |         35 |          0 |          8 |         43 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/SaleItemController.java     | Java            |         24 |          0 |          6 |         30 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/StockController.java        | Java            |         23 |          0 |          5 |         28 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/controller/UserController.java         | Java            |         90 |          3 |         21 |        114 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/dto/LoginRequest.java                  | Java            |         17 |          0 |          6 |         23 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/dto/RegisterRequest.java               | Java            |         24 |          0 |          8 |         32 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/filter/JwtAuthenticationFilter.java    | Java            |         65 |         11 |         17 |         93 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/Address.java                     | Java            |         66 |          1 |         21 |         88 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/Category.java                    | Java            |         35 |          1 |         13 |         49 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/Customer.java                    | Java            |         59 |          0 |         23 |         82 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/Payment.java                     | Java            |         53 |          0 |         19 |         72 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/Product.java                     | Java            |         89 |          5 |         31 |        125 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/Sale.java                        | Java            |         57 |          1 |         21 |         79 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/SaleItem.java                    | Java            |         54 |          0 |         20 |         74 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/Stock.java                       | Java            |         43 |          0 |         15 |         58 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/model/User.java                        | Java            |         82 |          1 |         31 |        114 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/AddressRepository.java      | Java            |         11 |          0 |          3 |         14 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/CategoryRepository.java     | Java            |          7 |          0 |          5 |         12 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/CustomerRepository.java     | Java            |          5 |          0 |          3 |          8 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/PaymentRepository.java      | Java            |          9 |          0 |          4 |         13 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/ProductRepository.java      | Java            |         14 |          1 |          7 |         22 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/SaleItemRepository.java     | Java            |         10 |          0 |          5 |         15 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/SaleRepository.java         | Java            |         10 |          0 |          6 |         16 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/StockRepository.java        | Java            |          9 |          0 |          4 |         13 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/repository/UserRepository.java         | Java            |         10 |          0 |          4 |         14 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/AddressService.java            | Java            |         19 |          0 |          6 |         25 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/CategoryService.java           | Java            |         27 |          0 |          9 |         36 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/CustomerService.java           | Java            |         24 |          0 |          7 |         31 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/EmailService.java              | Java            |         18 |          0 |          6 |         24 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/PaymentService.java            | Java            |         19 |          0 |          8 |         27 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/ProductService.java            | Java            |         43 |          2 |         12 |         57 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/SaleItemService.java           | Java            |         20 |          0 |          7 |         27 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/SaleService.java               | Java            |         27 |          0 |          9 |         36 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/StockService.java              | Java            |         19 |          0 |          6 |         25 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/service/UserService.java               | Java            |         49 |          2 |         13 |         64 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/utils/AuthUtils.java                   | Java            |         34 |          1 |          5 |         40 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/java/com/kinematech/kinematech_backend/utils/JwtUtils.java                    | Java            |         40 |          0 |          9 |         49 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/main/resources/application.properties                                              | Java Properties |         21 |          0 |          5 |         26 |
+| /home/joao/Documents/kinematech/Kinematech-Backend/kinematech-backend/src/test/java/com/kinematech/kinematech_backend/KinematechBackendApplicationTests.java | Java            |          9 |          0 |          5 |         14 |
+| Total                                                                                                                                                        |                 |      1,719 |         71 |        488 |      2,278 |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+

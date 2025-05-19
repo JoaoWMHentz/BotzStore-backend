@@ -1,6 +1,8 @@
 package com.kinematech.kinematech_backend.service;
 
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ public class PaymentService {
     @Autowired
     private PaymentRepository paymentRepository;
 
-    public Payment findBySaleId(Long saleId) {
+    public Payment findBySaleId(UUID saleId) {
         return paymentRepository.findBySaleId(saleId);
     }
 
@@ -20,7 +22,7 @@ public class PaymentService {
         return paymentRepository.save(payment);
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         paymentRepository.deleteById(id);
     }
 }

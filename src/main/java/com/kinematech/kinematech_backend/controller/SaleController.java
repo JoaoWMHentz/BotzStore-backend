@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/sales")
@@ -20,14 +21,14 @@ public class SaleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Sale> getById(@PathVariable Long id) {
+    public ResponseEntity<Sale> getById(@PathVariable UUID id) {
         return saleService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/customer/{customerId}")
-    public List<Sale> getByCustomerId(@PathVariable Long customerId) {
+    public List<Sale> getByCustomerId(@PathVariable UUID customerId) {
         return saleService.findAllByCustomerId(customerId);
     }
 
@@ -37,7 +38,7 @@ public class SaleController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable UUID id) {
         saleService.delete(id);
     }
 }

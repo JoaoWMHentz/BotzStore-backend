@@ -1,14 +1,20 @@
 package com.kinematech.kinematech_backend.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
+
+import org.hibernate.annotations.GenericGenerator;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid4")
+    @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(columnDefinition = "UUID")
+    private UUID id;
 
     private String name;
 
@@ -21,43 +27,43 @@ public class User {
 
     private boolean active = false;
 
-    private String emailVerificationToken; 
+    private String emailVerificationToken;
 
     private Long tokenExpiration;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    public User() {}
+    public User() {
+    }
 
-    public User(Long id, String name, String password, String email, Customer customer) {
-        this.id = id;
+    public User(String name, String email, String password, String salt, boolean active, String emailVerificationToken,
+            Long tokenExpiration, Customer customer) {
         this.name = name;
-        this.password = password;
         this.email = email;
+        this.password = password;
+        this.salt = salt;
+        this.active = active;
+        this.emailVerificationToken = emailVerificationToken;
+        this.tokenExpiration = tokenExpiration;
         this.customer = customer;
     }
 
-    // Getters e Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setUsername(String name) {
+    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {
@@ -68,16 +74,12 @@ public class User {
         this.email = email;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public boolean authenticate(String password) {
-        return this.password.equals(password);
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSalt() {
@@ -111,4 +113,13 @@ public class User {
     public void setTokenExpiration(Long tokenExpiration) {
         this.tokenExpiration = tokenExpiration;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
 }

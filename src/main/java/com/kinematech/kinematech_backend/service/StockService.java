@@ -1,5 +1,7 @@
 package com.kinematech.kinematech_backend.service;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,7 @@ public class StockService {
     @Autowired
     private StockRepository stockRepository;
 
-    public Stock findByProductId(Long productId) {
+    public Stock findByProductId(UUID productId) {
         return stockRepository.findByProductId(productId);
     }
 
@@ -19,7 +21,7 @@ public class StockService {
         return stockRepository.save(stock);
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         stockRepository.deleteById(id);
     }
 }

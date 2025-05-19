@@ -2,13 +2,19 @@ package com.kinematech.kinematech_backend.model;
 
 import jakarta.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
+import java.util.UUID;
+
 @Entity
 @Table(name = "addresses")
 public class Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid4")
+    @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(columnDefinition = "UUID")
+    private UUID id;
 
     private String street;
     private String city;
@@ -33,7 +39,7 @@ public class Address {
     }
 
     // Getters e Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

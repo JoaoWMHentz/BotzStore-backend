@@ -1,17 +1,22 @@
 package com.kinematech.kinematech_backend.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 
+import org.hibernate.annotations.GenericGenerator;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "sales")
 public class Sale {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid4")
+    @GenericGenerator(name = "uuid4", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(columnDefinition = "UUID")
+    private UUID id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id")
@@ -25,9 +30,10 @@ public class Sale {
     @Temporal(TemporalType.TIMESTAMP)
     private Date saleDate;
 
-    public Sale() {}
+    public Sale() {
+    }
 
-    public Sale(Long id, Customer customer, List<SaleItem> saleItems, double totalAmount, Date saleDate) {
+    public Sale(UUID id, Customer customer, List<SaleItem> saleItems, double totalAmount, Date saleDate) {
         this.id = id;
         this.customer = customer;
         this.saleItems = saleItems;
@@ -36,11 +42,11 @@ public class Sale {
     }
 
     // Getters e Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

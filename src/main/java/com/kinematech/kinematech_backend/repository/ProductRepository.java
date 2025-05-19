@@ -7,11 +7,12 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, UUID> {
 
     @Query("SELECT p FROM Product p WHERE p.category.id = :categoryId")
-    List<Product> findAllByCategoryId(@Param("categoryId") Long categoryId);
+    List<Product> findAllByCategoryId(@Param("categoryId") UUID categoryId);
 
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<Product> searchByName(@Param("name") String name);

@@ -1,5 +1,7 @@
 package com.kinematech.kinematech_backend.service;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,7 @@ public class AddressService {
     @Autowired
     private AddressRepository addressRepository;
 
-    public Address findByCustomerId(Long customerId) {
+    public Address findByCustomerId(UUID customerId) {
         return addressRepository.findByCustomerId(customerId);
     }
 
@@ -19,7 +21,7 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         addressRepository.deleteById(id);
     }
 }
