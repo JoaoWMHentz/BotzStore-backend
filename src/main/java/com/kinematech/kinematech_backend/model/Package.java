@@ -29,15 +29,6 @@ public class Package {
 
     private String description;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Double getLength() {
         return length;
     }
